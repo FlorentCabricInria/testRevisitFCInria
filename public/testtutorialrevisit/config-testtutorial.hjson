@@ -1,6 +1,5 @@
  {
      $schema: https://raw.githubusercontent.com/revisit-Studies/study/main/src/parser/StudyConfigSchema.json
-
  studyMetadata: {
         title:testtutorialrevisit
         version: pilot
@@ -27,119 +26,201 @@ uiConfig: {
                  path: testtutorialrevisit/introduction.md
                  response: []
              }
-             dotplot-low: {
-                 meta: {
-                     difficulty: 1
-                     nr-dots: 20
-                     temp: low
-                 }
-                 title: T1-low-temp
-                 description: Low temperature variant
-                 instruction: Will you issue blankets to the alpacas?
+             SD_SC1: {
+
+                 title:Test
+                 description: Change
+                 instruction: ""
                  type: image
-                 path: testtutorialrevisit/uncertainty-1.png
-                 style: {
-                     width: 800px
-                 }
-                 nextButtonLocation: sidebar
+                 path: testtutorialrevisit/SD_SC.svg
+                   style: {
+                                width: 800px
+                            }
+                 nextButtonLocation: belowStimulus
                  response: [
                      {
-                         id: image-demo-response
-                         prompt: "Answer:"
+                         id: SD_SC1
+                         prompt: "What's the difference between men's and women's pay?:"
                          required: true
-                         location: sidebar
-                         type: radio
-                         options: [
-                             {
-                                 label: Yes
-                                 value: "1"
-                             }
-                             {
-                                 label: No
-                                 value: "2"
-                             }
-                         ]
+                         location: belowStimulus
+                         type: numerical
+                         max: 3000,
+                         min: 0
                      }
                  ]
              }
-             dotplot-medium: {
-                 meta: {
-                     difficulty: 2
-                     nr-dots: 20
-                     temp: mid
-                 }
-                 title: T2-mid-temp
-                 description: Medium temperature variant
-                 instruction: Will you issue blankets to the alpacas?
-                 type: image
-                 path: testtutorialrevisit/uncertainty-2.png
-                 style: {
-                     width: 800px
-                 }
-                 nextButtonLocation: sidebar
-                 response: [
-                     {
-                         id: image-demo-response
-                         prompt: "Answer:"
-                         required: true
-                         location: sidebar
-                         type: radio
-                         options: [
-                             {
-                                 label: Yes
-                                 value: "1"
+              SD_UC1: {
+
+                  title:Test
+                  description: Change
+                  instruction: ""
+                  type: image
+                  path: testtutorialrevisit/SD_UC.svg
+                  style: {
+                  width: 800px
+                  }
+                  nextButtonLocation: belowStimulus
+                  response: [
+                      {
+                          id: SD_UC1
+                          prompt: "What's the difference between men's and women's pay?:"
+                          required: true
+                          location: belowStimulus
+                          type: numerical
+                          max: 3000,
+                          min: 0
+                      }
+                  ]
+              }
+
+              UD_SC1: {
+
+                      title:Test
+                      description: Change
+                      instruction: ""
+                      type: image
+                      path: testtutorialrevisit/UD_SC.svg
+                      style: {
+                      width: 800px
+                      }
+
+                      nextButtonLocation: belowStimulus
+                      response: [
+                          {
+                              id: UD_SC1
+                              prompt: "What's the difference between men's and women's pay?:"
+                              required: true
+                              location: belowStimulus
+                              type: numerical
+                              max: 3000,
+                              min: 0
+                          }
+                               ]
                              }
-                             {
-                                 label: No
-                                 value: "2"
-                             }
-                         ]
-                     }
-                 ]
+              UD_UC1: {
+
+                    title:Test
+                    description: Change
+                    instruction: ""
+                    type: image
+                    path: testtutorialrevisit/UD_UC.svg
+                    style: {
+                    width: 800px
+                    }
+                    nextButtonLocation: belowStimulus
+                    response: [
+                    {
+                            id: UD_UC1
+                             prompt: "What's the difference between men's and women's pay?:"
+                            required: true
+                            location: belowStimulus
+                            type: numerical
+                            max: 3000,
+                            min: 0
+                        }
+                    ]
              }
-             dotplot-high: {
-                 title: T3-high-temp
-                 meta: {
-                     difficulty: 1
-                     nr-dots: 20
-                     temp: hi
-                 }
-                 description: High temperature variant
-                 instruction: Will you issue blankets to the alpacas?
-                 type: image
-                 path: testtutorialrevisit/uncertainty-3.png
-                 style: {
-                     width: 800px
-                 }
-                 nextButtonLocation: sidebar
-                 response: [
-                     {
-                         id: image-demo-response
-                         prompt: "Answer:"
-                         required: true
-                         location: sidebar
-                         type: radio
-                         options: [
-                             {
-                                 label: Yes
-                                 value: "1"
-                             }
-                             {
-                                 label: No
-                                 value: "2"
-                             }
-                         ]
-                     }
-                 ]
-             }
+             pinkblock: {
+
+                                 title:Test
+                                 description: Change
+                                 instruction: ""
+                                 type: image
+                                 path: testtutorialrevisit/pink_block.svg
+                                 style: {
+                                 width: 800px
+                                 }
+                                 nextButtonLocation: belowStimulus
+                                 response: [
+                                 {
+                                         id: pinkColor1
+                                          prompt: "What's the difference between men's and women's pay?:"
+                                         required: true
+                                         location: belowStimulus
+                                         type: slider
+
+                                     }
+                                 ]
+                          }
+             greenblock: {
+
+                                 title:Test
+                                 description: Change
+                                 instruction: ""
+                                 type: image
+                                 path: testtutorialrevisit/green_block.svg
+                                 style: {
+                                 width: 800px
+                                 }
+                                 nextButtonLocation: belowStimulus
+                                 response: [
+                                 {
+                                         id: greenColor1
+                                          prompt: "What's the difference between men's and women's pay?:"
+                                         required: true
+                                         location: belowStimulus
+                                         type: slider
+
+                                     }
+                                 ]
+                          }
+             yellowblock: {
+
+                                              title:Test
+                                              description: Change
+                                              instruction: ""
+                                              type: image
+                                              path: testtutorialrevisit/yellow_block.svg
+                                              style: {
+                                              width: 800px
+                                              }
+                                              nextButtonLocation: belowStimulus
+                                              response: [
+                                              {
+                                                      id: yellowColor1
+                                                       prompt: "What's the difference between men's and women's pay?:"
+                                                      required: true
+                                                      location: belowStimulus
+                                                      type: slider
+
+                                                  }
+                                              ]
+                                       }
+             redblock: {
+
+                                                           title:Test
+                                                           description: Change
+                                                           instruction: ""
+                                                           type: image
+                                                           path: testtutorialrevisit/red_block.svg
+                                                           style: {
+                                                           width: 800px
+                                                           }
+                                                           nextButtonLocation: belowStimulus
+                                                           response: [
+                                                           {
+                                                                   id: redColor1
+                                                                    prompt: "What's the difference between men's and women's pay?:"
+                                                                   required: true
+                                                                   location: belowStimulus
+                                                                   type: slider
+
+                                                               }
+                                                           ]
+                                                    }
          }
          sequence: {
              order: fixed
              components:  [
                  introduction
-                 dotplot-low
-                 dotplot-medium
-                 dotplot-high
+                 SD_SC1
+                 SD_UC1
+                 UD_SC1
+                 UD_UC1
+                 pinkblock
+                 redblock
+                 yellowblock
+                 greenblock
              ]
          }
      }

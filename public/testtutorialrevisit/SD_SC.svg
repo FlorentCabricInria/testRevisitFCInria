@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198.57 276.51">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #231f20;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 12px;
+      }
+
+      .cls-3 {
+        fill: #bc529f;
+      }
+
+      .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-4 {
+        fill: #3f489e;
+      }
+
+      .cls-8 {
+        letter-spacing: .03em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        letter-spacing: -.01em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <line class="cls-1" x1=".5" x2=".5" y2="253.02"/>
+      <line class="cls-1" x1="52.85" y1="275.84" x2="52.85" y2="276.51"/>
+      <line class="cls-1" x1=".5" y1="253.02" x2="198.57" y2="253.02"/>
+      <text class="cls-2" transform="translate(24.76 24.19)"><tspan class="cls-7" x="0" y="0">A</tspan><tspan class="cls-9" x="7.2" y="0">djus</tspan><tspan class="cls-6" x="28.25" y="0">t</tspan><tspan x="32.15" y="0">ed sala</tspan><tspan class="cls-8" x="66.62" y="0">r</tspan><tspan x="70.85" y="0">y in a </tspan><tspan class="cls-6" x="99.38" y="0">c</tspan><tspan x="104.69" y="0">ompa</tspan><tspan class="cls-5" x="133.89" y="0">n</tspan><tspan x="140.4" y="0">y</tspan></text>
+      <rect class="cls-3" x="48.15" y="97.99" width="43.62" height="153.69"/>
+      <rect class="cls-4" x="133.72" y="51.01" width="43.62" height="200.67"/>
+      <text class="cls-2" transform="translate(141.46 272.17)"><tspan x="0" y="0">men</tspan></text>
+      <text class="cls-2" transform="translate(50.65 271.24)"><tspan class="cls-10" x="0" y="0">w</tspan><tspan x="8.71" y="0">omen</tspan></text>
+    </g>
+  </g>
+</svg>
