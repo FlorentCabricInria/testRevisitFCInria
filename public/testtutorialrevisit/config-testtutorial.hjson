@@ -1,6 +1,8 @@
  {
+     $schema: https://raw.githubusercontent.com/revisit-Studies/study/main/src/parser/StudyConfigSchema.json
+
  studyMetadata: {
-        title:testtutorial
+        title:testtutorialrevisit
         version: pilot
         authors: [
            Florent Cabric
