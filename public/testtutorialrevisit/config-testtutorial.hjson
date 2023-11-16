@@ -1,0 +1,63 @@
+ {
+ studyMetadata: {
+        title:testtutorial
+        version: pilot
+        authors: [
+           Florent Cabric
+        ]
+        date: 2023-11-28
+        description: A test of the REVISIT Tutorial
+        organizations: [
+            Inria Saclay
+        ]
+    }
+uiConfig: {
+        contactEmail: florentcabric@inria.com
+        helpTextPath: testtutorialrevisit/help.md
+        logoPath: assets/revisitLogoSquare.svg
+        withProgressBar: true
+        autoDownloadStudy: false
+        sidebar: true
+    }
+    introduction: {
+        type: markdown
+        path: testtutorialrevisit/introduction.md
+        response: []
+    }
+    training1: {
+        type: image
+        path: testtutorialrevisit/Asset 1.svg
+        response: [
+        {type: numerical
+        location: aboveStimulus
+        }]
+    }
+    survey: {
+        type: questionnaire
+        response: [
+            {
+                id: q1
+                prompt: Dropdown example
+                required: true
+                location: aboveStimulus
+                type: dropdown
+                placeholder: Enter your chart preference
+                options: [
+                    {
+                        label: Bar Chart
+                        value: Bar Chart
+                    }
+                    {
+                        label: Bubble Chart
+                        value: Bubble Chart
+                    }
+                ]
+            }
+        ]
+    }
+    sequence: [
+        "introduction",
+        "training1"
+    ]
+
+    }
