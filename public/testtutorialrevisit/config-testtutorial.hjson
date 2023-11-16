@@ -21,43 +21,38 @@ uiConfig: {
         autoDownloadStudy: false
         sidebar: true
     }
-    components {
-    introduction: {
-        type: markdown
-        path: testtutorialrevisit/introduction.md
-        response: []
-    }
-    training1: {
+    components: {
+        introduction: {
+         type: markdown
+         path: testtutorialrevisit/introduction.md
+         response: []
+        }
+     training1: {
         type: image
+        title: T1-low-temp
+        description: Low temperature variant
+        instruction: Will you issue blankets to the alpacas?
         path: testtutorialrevisit/Asset 1.svg
         response: [
-        {type: numerical
-        location: aboveStimulus
-        }]
+        {
+                            id: image-demo-response
+                            prompt: "Answer:"
+                            required: true
+                            location: sidebar
+                            type: radio
+                            options: [
+                                {
+                                    label: Yes
+                                    value: "1"
+                                }
+                                {
+                                    label: No
+                                    value: "2"
+                                }
+                            ]
+                        }]
     }
-    survey: {
-        type: questionnaire
-        response: [
-            {
-                id: q1
-                prompt: Dropdown example
-                required: true
-                location: aboveStimulus
-                type: dropdown
-                placeholder: Enter your chart preference
-                options: [
-                    {
-                        label: Bar Chart
-                        value: Bar Chart
-                    }
-                    {
-                        label: Bubble Chart
-                        value: Bubble Chart
-                    }
-                ]
-            }
-        ]
-    }
+
     }
     sequence: [
         "introduction",
