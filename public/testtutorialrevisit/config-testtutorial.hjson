@@ -21,6 +21,7 @@ uiConfig: {
         autoDownloadStudy: false
         sidebar: true
     }
+    components {
     introduction: {
         type: markdown
         path: testtutorialrevisit/introduction.md
@@ -56,6 +57,7 @@ uiConfig: {
                 ]
             }
         ]
+    }
     }
     sequence: [
         "introduction",
