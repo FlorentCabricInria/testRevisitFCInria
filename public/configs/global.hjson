@@ -1,7 +1,7 @@
 {
     $schema: https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/GlobalConfigSchema.json
     configsList: [
-        testtutorialrevisit
+
         image-demo
         html-input
         survey-demo
@@ -11,11 +11,9 @@
         VLAT-mini-randomized
         MVNV
         brush-interactions
+        testtutorialrevisit
     ],
     configs: {
-        testtutorialrevisit: {
-            path: testtutorialrevisit/config-testtutorial.hjson
-        },
         image-demo: {
             path: image-demo/config-image-demo.hjson
         },
@@ -42,6 +40,9 @@
         },
         brush-interactions: {
             path: brush-interactions/config.hjson
-        }
+        },
+        testtutorialrevisit: {
+                    path: testtutorialrevisit/config-testtutorial.hjson
+                }
     }
 }
