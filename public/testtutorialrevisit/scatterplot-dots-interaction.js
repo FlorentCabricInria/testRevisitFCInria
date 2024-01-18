@@ -7,7 +7,7 @@
     var random =  new Math.seedrandom("0.45454");
     console.log("Hey I am here")
 
-    d3.csv("./csvTestPlusPlus", function(genderData)
+    d3.csv("./csvTestPlusPlus.csv", function(genderData)
     {
         var data = structuredClone(genderData);
         // Specify the chart’s dimensions.  const width = 640;
