@@ -7,10 +7,10 @@
     var random =  new Math.seedrandom("0.45454");
     console.log("Hey I am here")
 
-    d3.csv("./csvTestPlusPlus.csv", function(genderData)
+    d3.csv("./csvTestPlusPlus.csv", function(data)
     {
-        console.log(genderData)
-        var data = structuredClone(genderData);
+        console.log(data)
+        var storedData = structuredClone(data);
         // Specify the chart’s dimensions.  const width = 640;
         const height = 400;
         const marginTop = 5;
@@ -23,7 +23,7 @@
         var nbWomen = 0;
         var nbMen = 0;
         var totalSalaryMen = 0.0;
-        data.forEach(function (d) {
+        storedData.forEach(function (d) {
             if (d.gender == "W") {
                 totalSalaryWomen += d.salary
                 nbWomen++;
@@ -53,7 +53,7 @@
             .attr("viewBox", [0, 0, width, height])
             .attr("style", "max-width: 100%; height: auto;");
 
-        var a = d3.group(data, d => d.gender)
+        var a = d3.group(storedData, d => d.gender)
         console.log(a)
         // Add the axes.
         svg.append("g")
@@ -111,7 +111,7 @@
             .range(["M", "W"]);
 
         function dragstarted(event, d) {
-            console.log(d.key, d.gender, d.salary, data[d.key].salary, 'start')
+            console.log(d.key, d.gender, d.salary, storedData[d.key].salary, 'start')
         }
 
         function dragged(event, d) {
@@ -122,7 +122,7 @@
         }
 
         function dragended(event, d) {
-            console.log(d.gender, d.salary, data[d.key].salary, 'end');
+            console.log(d.gender, d.salary, storedData[d.key].salary, 'end');
         }
 
         function update(event, d) {
@@ -134,12 +134,12 @@
             var oldValue = d.salary
             var newSalary = y.invert(event.y)
             if (newSalary < d.baseSalary + (d.baseSalary * 0.1) && newSalary > d.baseSalary) {
-                data[d.key].salary = newSalary
+                storedData[d.key].salary = newSalary
                 d.salary = newSalary
                 if (d.gender == "W") {
-                    totalSalaryWomen += oldValue - (data[d.key].salary)
+                    totalSalaryWomen += oldValue - (storedData[d.key].salary)
                 } else {
-                    totalSalaryMen += oldValue - (data[d.key].salary)
+                    totalSalaryMen += oldValue - (storedData[d.key].salary)
                 }
                 d3.select("#PayGap").text("Paygap is " + ((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen)))
 
@@ -149,7 +149,7 @@
 
         svg.append("g")
             .selectAll("circle")
-            .data(data)
+            .data(storedData)
             .join(
                 function (enter) {
                     return enter
