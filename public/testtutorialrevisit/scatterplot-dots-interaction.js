@@ -42,8 +42,7 @@ function drawChart(container, data) {
             .range([height - marginBottom, marginTop]);
 
         // Create the container SVG.
-        const svg = d3.select(container)
-            .append('svg')
+        const svg = d3.select("svg")
             .attr("width", width)
             .attr("height", height)
             .attr("viewBox", [0, 0, width, height])
