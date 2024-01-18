@@ -7,12 +7,15 @@
     var random =  new Math.seedrandom("0.45454");
     console.log("Hey I am here")
 
-    d3.csv("./csvTestPlusPlus.csv").then((data) =>
+    d3.csv("./csvTest.csv").then((data) =>
     {
+        const taskID = "scatterplot2";
+        const loc = "belowStimulus"
         console.log(data)
         var storedData = structuredClone(data);
-        // Specify the chart’s dimensions.  const width = 640;
-        const height = 400;
+        // Specify the chart’s dimensions.
+        const width = 1280;
+        const height = 800;
         const marginTop = 5;
         const marginRight = 0;
         const marginBottom = 5;
@@ -25,14 +28,14 @@
         var totalSalaryMen = 0.0;
         storedData.forEach(function (d) {
             if (d.gender == "W") {
-                totalSalaryWomen += d.salary
+                totalSalaryWomen += parseFloat(d.salary)
                 nbWomen++;
             } else {
-                totalSalaryMen += d.salary
+                totalSalaryMen +=  parseFloat(d.salary)
                 nbMen++;
             }
         });
-        var diff = (totalSalaryMen / nbMen) / (totalSalaryWomen / nbWomen);
+        var diff = parseFloat((totalSalaryMen / nbMen) / (totalSalaryWomen / nbWomen));
         console.log(totalSalaryMen / nbMen, " - ", (totalSalaryWomen / nbWomen), 'difference ', diff)
         d3.select("#PayGap").text("Paygap is " + ((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen)))
         // Define the horizontal scale.
@@ -111,7 +114,7 @@
             .range(["M", "W"]);
 
         function dragstarted(event, d) {
-            console.log(d.key, d.gender, d.salary, storedData[d.key].salary, 'start')
+            console.log(d.id, d.gender, d.salary, storedData[d.id].salary, 'start')
         }
 
         function dragged(event, d) {
@@ -122,28 +125,34 @@
         }
 
         function dragended(event, d) {
-            console.log(d.gender, d.salary, storedData[d.key].salary, 'end');
+            console.log(d.gender, d.salary, storedData[d.id].salary, 'end');
         }
 
         function update(event, d) {
-            /*  console.log( '######## UPDATE ######')
-            console.log('update', d.gender,d.salary,data[d.key])*/
+           //  console.log( '######## UPDATE ######')
+          //  console.log('update', d.gender,d.salary,data[d.id])
             var current_dot = d3.select(this)
             /* var tcy = current_dot.attr('cy')
              var tcx = current_dot.attr('cx')   */
-            var oldValue = d.salary
-            var newSalary = y.invert(event.y)
-            if (newSalary < d.baseSalary + (d.baseSalary * 0.1) && newSalary > d.baseSalary) {
-                storedData[d.key].salary = newSalary
+            var oldValue = parseFloat(d.salary)
+            var newSalary = parseFloat(y.invert(event.y))
+            if (parseFloat(newSalary) < parseFloat(d.baseSalary) + parseFloat((d.baseSalary * 0.1)) && parseFloat(newSalary) > parseFloat(d.baseSalary)) {
+           //     console.log("update in progress")
+                storedData[d.id].salary = newSalary
                 d.salary = newSalary
                 if (d.gender == "W") {
-                    totalSalaryWomen += oldValue - (storedData[d.key].salary)
+                    totalSalaryWomen += oldValue - (storedData[d.id].salary)
                 } else {
-                    totalSalaryMen += oldValue - (storedData[d.key].salary)
+                    totalSalaryMen += oldValue - (storedData[d.id].salary)
                 }
                 d3.select("#PayGap").text("Paygap is " + ((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen)))
-
+                Revisit.postAnswers(
+                    {answer:[((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen))], taskID,location:loc}
+                );
                 current_dot.attr('cy', event.y)
+            //    console.log("update in done")
+
+
             }
         }
 
@@ -154,7 +163,7 @@
                 function (enter) {
                     return enter
                         .append("circle")
-                        .attr("id", d => d.key)
+                        .attr("id", d => d.id)
                         .attr("cx", function (d, i) {
                             if (d.gender == "M") {
                                 return (width / 3) + (random.double() * (200)) - 100;

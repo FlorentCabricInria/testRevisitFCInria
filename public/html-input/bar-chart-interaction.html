@@ -53,6 +53,7 @@
         .style("fill", d => color(d))
         // Post answer from the html to reVISit platform
         .on("click", (e, d) => {
+            console.log('d',d,[d])
             Revisit.postAnswers(
                 {answer:[d], taskID,location:loc}
             );
