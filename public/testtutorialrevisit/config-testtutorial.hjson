@@ -37,7 +37,7 @@ uiConfig: {
                                  type: iframe
                              }
                          ]
-                         path: testtutorialrevisit/scatterplot-dots-interaction.html
+                         path: testtutorialrevisit/test-decision-making-study.html
                          meta: {
                              chart: bar
                              AttrNo: 7
