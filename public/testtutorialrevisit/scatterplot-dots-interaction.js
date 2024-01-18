@@ -3,7 +3,7 @@
     //const seedrandom = require("seedrandom")
 
     var random = Math.seedrandom("0.45454");
-    var random = seedrandom("0.45454");
+    //var random = seedrandom("0.45454");
     var random =  new Math.seedrandom("0.45454");
     console.log("Hey I am here")
 
