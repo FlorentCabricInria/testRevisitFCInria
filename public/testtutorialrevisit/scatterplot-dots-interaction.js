@@ -9,6 +9,7 @@
 
     d3.csv("./csvTestPlusPlus.csv", function(genderData)
     {
+        console.log(genderData)
         var data = structuredClone(genderData);
         // Specify the chart’s dimensions.  const width = 640;
         const height = 400;
