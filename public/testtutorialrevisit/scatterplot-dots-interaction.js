@@ -1,4 +1,4 @@
-function drawChart(container, data) {
+
     console.log("Hey I am here")
     const seedrandom = require("seedrandom@3")
 
@@ -174,6 +174,5 @@ function drawChart(container, data) {
                             .on("drag.update", update));
                 })
 
-    });
+    })
     // return svg.node();
-}
