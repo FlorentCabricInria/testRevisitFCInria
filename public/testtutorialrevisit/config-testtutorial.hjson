@@ -26,6 +26,32 @@ uiConfig: {
                  path: testtutorialrevisit/introduction.md
                  response: []
              }
+             scatterplot2: {
+                         type: website
+                         response: [
+                             {
+                                 id: scatterplot2
+                                 prompt: "Your selected answer:"
+                                 required: true
+                                 location: belowStimulus
+                                 type: iframe
+                             }
+                         ]
+                         path: html-input/bar-chart-interaction.html
+                         meta: {
+                             chart: bar
+                             AttrNo: 7
+                             misleading: false
+                         }
+                         description: A trial for the user to click the largest bar
+                         instruction: Click on the largest bar
+                         // style that will be applied to iframe
+                         style: {
+                             height: 500px
+                         }
+                         instructionLocation: aboveStimulus
+
+                     }
              SD_SC1: {
 
                  title:Test
@@ -40,7 +66,7 @@ uiConfig: {
                  response: [
                      {
                          id: SD_SC1
-                         prompt: "What's the difference between men's and women's pay?:"
+                         prompt: "With which gender do you associate this color?"
                          required: true
                          location: belowStimulus
                          type: numerical
@@ -63,7 +89,7 @@ uiConfig: {
                   response: [
                       {
                           id: SD_UC1
-                          prompt: "What's the difference between men's and women's pay?:"
+                          prompt: "With which gender do you associate this color?"
                           required: true
                           location: belowStimulus
                           type: numerical
@@ -88,7 +114,7 @@ uiConfig: {
                       response: [
                           {
                               id: UD_SC1
-                              prompt: "What's the difference between men's and women's pay?:"
+                              prompt: "With which gender do you associate this color?"
                               required: true
                               location: belowStimulus
                               type: numerical
@@ -111,7 +137,7 @@ uiConfig: {
                     response: [
                     {
                             id: UD_UC1
-                             prompt: "What's the difference between men's and women's pay?:"
+                             prompt: "With which gender do you associate this color?"
                             required: true
                             location: belowStimulus
                             type: numerical
@@ -128,27 +154,27 @@ uiConfig: {
                                  type: image
                                  path: testtutorialrevisit/pink_block.svg
                                  style: {
-                                 width: 800px
+                                 width: 400px
                                  }
                                  nextButtonLocation: belowStimulus
                                  response: [
                                  {
                                          id: pinkColor1
-                                          prompt: "What's the difference between men's and women's pay?:"
+                                          prompt: "With which gender do you associate this color?"
                                          required: true
                                          location: belowStimulus
                                          type: slider
                                           options: [
                                                                  {
-                                                                     label: Bad
+                                                                     label: Fully associated with men
                                                                      value: 0
                                                                  }
                                                                  {
-                                                                     label: Mid
+                                                                     label: No greater association with men than with women
                                                                      value: 50
                                                                  }
                                                                  {
-                                                                     label: Good
+                                                                     label: Fully associated with women
                                                                      value: 100
                                                                  }
                                                              ]
@@ -164,27 +190,27 @@ uiConfig: {
                                  type: image
                                  path: testtutorialrevisit/green_block.svg
                                  style: {
-                                 width: 800px
+                                 width: 400px
                                  }
                                  nextButtonLocation: belowStimulus
                                  response: [
                                  {
                                          id: greenColor1
-                                          prompt: "What's the difference between men's and women's pay?:"
+                                          prompt: "With which gender do you associate this color?"
                                          required: true
                                          location: belowStimulus
                                          type: slider
                                           options: [
                                                                  {
-                                                                     label: Bad
+                                                                     label: Fully associated with men
                                                                      value: 0
                                                                  }
                                                                  {
-                                                                     label: Mid
+                                                                     label: No greater association with men than with women
                                                                      value: 50
                                                                  }
                                                                  {
-                                                                     label: Good
+                                                                     label: Fully associated with women
                                                                      value: 100
                                                                  }
                                                              ]
@@ -200,27 +226,27 @@ uiConfig: {
                                               type: image
                                               path: testtutorialrevisit/yellow_block.svg
                                               style: {
-                                              width: 800px
+                                              width: 400px
                                               }
                                               nextButtonLocation: belowStimulus
                                               response: [
                                               {
                                                       id: yellowColor1
-                                                       prompt: "What's the difference between men's and women's pay?:"
+                                                       prompt: "With which gender do you associate this color?"
                                                       required: true
                                                       location: belowStimulus
                                                       type: slider
                                                        options: [
                                                                               {
-                                                                                  label: Bad
+                                                                                  label: Fully associated with men
                                                                                   value: 0
                                                                               }
                                                                               {
-                                                                                  label: Mid
+                                                                                  label: No greater association with men than with women
                                                                                   value: 50
                                                                               }
                                                                               {
-                                                                                  label: Good
+                                                                                  label: Fully associated with women
                                                                                   value: 100
                                                                               }
                                                                           ]
@@ -236,27 +262,27 @@ uiConfig: {
                                                            type: image
                                                            path: testtutorialrevisit/red_block.svg
                                                            style: {
-                                                           width: 800px
+                                                           width: 400px
                                                            }
                                                            nextButtonLocation: belowStimulus
                                                            response: [
                                                            {
                                                                    id: redColor1
-                                                                    prompt: "What's the difference between men's and women's pay?:"
+                                                                    prompt: "With which gender do you associate this color?"
                                                                    required: true
                                                                    location: belowStimulus
                                                                    type: slider
                                                                     options: [
                                                                                            {
-                                                                                               label: Bad
+                                                                                               label: Fully associated with men
                                                                                                value: 0
                                                                                            }
                                                                                            {
-                                                                                               label: Mid
+                                                                                               label: No greater association with men than with women
                                                                                                value: 50
                                                                                            }
                                                                                            {
-                                                                                               label: Good
+                                                                                               label: Fully associated with women
                                                                                                value: 100
                                                                                            }
                                                                                        ]
@@ -269,6 +295,7 @@ uiConfig: {
              order: fixed
              components:  [
                  introduction
+                 scatterplot2
                  SD_SC1
                  SD_UC1
                  UD_SC1
