@@ -7,7 +7,7 @@
     var random =  new Math.seedrandom("0.45454");
     console.log("Hey I am here")
 
-    d3.csv("./csvTestPlusPlus.csv", function(data)
+    d3.csv("./csvTestPlusPlus.csv").then((data) =>
     {
         console.log(data)
         var storedData = structuredClone(data);
@@ -179,5 +179,5 @@
                             .on("drag.update", update));
                 })
 
-    })
+    });
     // return svg.node();
