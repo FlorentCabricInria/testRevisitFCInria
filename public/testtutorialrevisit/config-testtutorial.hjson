@@ -37,7 +37,7 @@ uiConfig: {
                                  type: iframe
                              }
                          ]
-                         path: html-input/bar-chart-interaction.html
+                         path: testtutorialrevisit/scatterplot-dots-interaction.html
                          meta: {
                              chart: bar
                              AttrNo: 7
