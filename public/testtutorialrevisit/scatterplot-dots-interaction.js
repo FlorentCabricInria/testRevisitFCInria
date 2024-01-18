@@ -1,8 +1,8 @@
 
     console.log("Hey I am here")
-    //const seedrandom = require("seedrandom@3")
+    const seedrandom = require("seedrandom")
 
-    var random = new Math.seedrandom("45454");
+    const random = seedrandom("0.45454");
     d3.csv("./csvTestPlusPlus", function(genderData)
     {
         var data = structuredClone(genderData);
