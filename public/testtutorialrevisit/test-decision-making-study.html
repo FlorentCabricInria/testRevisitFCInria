@@ -7,14 +7,28 @@
     <!-- Load revisit-communicate to be able to send data to reVISit -->
     <script src="../js/revisit-communicate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"> </script>
-    <script type="text/javascript" src="scatterplot-dots-interaction.js"></script>
+    <!--<script type="text/javascript" src="scatterplot-dots-interaction.js"></script> -->
+    <script type="text/javascript" src="linear-models.esm@50.js"></script>
+     <script type="text/javascript" src="scatterplot_stereotyped_women.js"></script>
+
     </script>
 </head>
 
 <body>
-<h2 id="PayGap"> PayGap </h2>
+<!--<h2 id="PayGap"> PayGap </h2> -->
+<div style="display: inline-block"> The current gender pay gap is <p id="currentPayGap" style="display: inline-block"> </p> <br>
+    You have allocated <p id="textEquity" style="display: inline-block"> 0 </p> for reducing gender pay gap and <p id="textAlternative" style="display: inline-block"> 0</p> for rewarding performance. <br>
+    You have <p id="textRemaining" style="display: inline-block"> 60000 </p> left to allocate.
+    <br>
     <svg>
     </svg>
+    <br>
+    <div style="display: inline-block">  Pay Equity: <input type="range" id="PayEquity" name="PayEquity" min="0" max="60000" value="0" step="100"> <output id="PEoutput">0</output> </div><br>
+    Performance-based: <input type="range" id="NotEquity" name="NotEquity" min="0" max="60000"  value="0" step="100" ><output id="ALToutput">0</output> <br>
+</div>
+<!--<input type="range" id="PayEquity" name="PayEquity" min="0" max="60000" value="30000">
+<input type="range" id="NotEquity" name="NotEquity" min="0" max="60000"  value="30000"> -->
+
 </body>
 
 <!--<script>-->

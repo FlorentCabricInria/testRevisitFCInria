@@ -14,8 +14,8 @@
         console.log(data)
         var storedData = structuredClone(data);
         // Specify the chart’s dimensions.
-        const width = 1280;
-        const height = 800;
+        const width = 800;
+        const height = 400;
         const marginTop = 5;
         const marginRight = 0;
         const marginBottom = 5;
@@ -37,7 +37,8 @@
         });
         var diff = parseFloat((totalSalaryMen / nbMen) / (totalSalaryWomen / nbWomen));
         console.log(totalSalaryMen / nbMen, " - ", (totalSalaryWomen / nbWomen), 'difference ', diff)
-        d3.select("#PayGap").text("Paygap is " + ((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen)))
+
+        d3.select("#PayGap").text("Paygap is " +  (((totalSalaryMen/nbMen)-(totalSalaryWomen/nbWomen))/(totalSalaryMen/nbMen)*100)+ "%")
         // Define the horizontal scale.
         const x = d3.scaleLinear()
             .domain([0, 100])
@@ -145,7 +146,7 @@
                 } else {
                     totalSalaryMen += oldValue - (storedData[d.id].salary)
                 }
-                d3.select("#PayGap").text("Paygap is " + ((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen)))
+                d3.select("#PayGap").text("Paygap is " +  (((totalSalaryMen/nbMen)-(totalSalaryWomen/nbWomen))/(totalSalaryMen/nbMen)*100)+ "%")
                 Revisit.postAnswers(
                     {answer:[((totalSalaryMen / nbMen) - (totalSalaryWomen / nbWomen))], taskID,location:loc}
                 );

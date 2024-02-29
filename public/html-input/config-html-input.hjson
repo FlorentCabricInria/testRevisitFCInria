@@ -44,7 +44,7 @@
             ]
             path: html-input/bar-chart-interaction.html
             meta: {
-                chart: bar
+                chart: scatterplot
                 AttrNo: 7
                 misleading: false
             }
