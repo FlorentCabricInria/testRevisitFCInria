@@ -9,6 +9,7 @@ import { isPartialComponent } from '../../parser/parser';
 import merge from 'lodash/merge';
 
 export default function AppNavBar() {
+
   const trialHasSideBar = useStudyConfig()?.uiConfig.sidebar;
   const trialHasSideBarResponses = true;
 
@@ -34,7 +35,7 @@ export default function AppNavBar() {
     currentConfig?.instructionLocation === undefined;
 
   return trialHasSideBar && currentConfig ? (
-    <Navbar bg="gray.1" display="block" width={{ base: 300 }} style={{ zIndex: 0, overflowY: 'scroll' }}>
+    <Navbar bg="gray.1" display="block" width={{ base: 600 }} style={{ zIndex: 0, overflowY: 'scroll' }}>
       {instructionInSideBar && instruction !== '' && (
         <Navbar.Section
           bg="gray.3"
@@ -44,7 +45,17 @@ export default function AppNavBar() {
             <Text span c="orange.8" fw={700} inherit>
               Task:
             </Text>
-            <ReactMarkdownWrapper text={instruction} />
+            <Text style={{whiteSpace: 'pre-wrap'}}>
+              {instruction.split('\\\\n').map((line, index) => (
+
+                  <Text key={index}>{line}</Text>
+
+              ))}
+          </Text>
+            <ReactMarkdownWrapper
+                //text={instruction}
+                text={' '}
+            />
           </Text>
         </Navbar.Section>
       )}

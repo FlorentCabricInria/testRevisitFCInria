@@ -14,7 +14,7 @@ import {useStoreActions} from '../store/store';
 const PREFIX = '@REVISIT_COMMS';
 
 const defaultStyle = {
-  minHeight: '500px',
+  minHeight: '650px',
   width: '100%',
   border: 0,
   marginTop: '-50px'

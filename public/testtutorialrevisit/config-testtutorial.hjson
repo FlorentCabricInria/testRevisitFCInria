@@ -25,14 +25,28 @@ uiConfig: {
                  type: markdown
                  path: testtutorialrevisit/introduction.md
                  response: []
+             },
+         consent: {
+           type: markdown
+           path: testtutorialrevisit/consent.md
+           response: [
+             {
+               id: userInitials
+               prompt: Please type your initials below. These are not used in our analyses, but required for the consent process.
+               required: true
+               location: belowStimulus
+               type: shortText
+               placeholder: Your Initials
              }
+           ]
+         }
              scatterplot2: {
                          type: website
                          response: [
                              {
                                  id: scatterplot2
                                  prompt: "Your selected answer:"
-                                 required: true
+                                 required: false
                                  location: belowStimulus
                                  type: iframe
 
@@ -45,18 +59,20 @@ uiConfig: {
                              misleading: false
                          }
                          description: A trial for the user to click the largest bar
-                         instruction: In this scenario, let's say you are a freelance HR manager. A CEO comes to ask you to help them to reduce the pay gap of their company. The rules are simple: 1) you can only can raise people's salary and up to 10% of their base salary
-                         style: {
+                         instruction: You are the person in charge of the company's annual salary review. \\n The CEO give you 60 000 _customcurrency_ to increase the salary the employees — your colleagues. The CEO told you to distribute the 60,000 as you want between two strategies :\\n      - reducing the gender pay gap (whether it's in favor of men or women) \\n      - increasing people’s salaries based on their last year's performance.\\n Each colleague has been categorized into 3 grade groups*: 1, 2 and 3. The performance is represented in the chart by the _size of the dot _and the Y position corresponds to their salary. The performance metric is considered highly robust in your company.  Moving the sliders will update your employees' salary according to the strategy chosen. \\n You can distribute the money as you wish between the two strategies (i.e., you can focus on just one), but all the money must be spent. \\n\\n\\n *grade groups= grouping job positions with similar skills, knowledge and experience and establishing job duties and levels of authority for that group
+
+               style: {
                              height: 1800px
                              min-height: 1800px
                          }
-                         instructionLocation: aboveStimulus
+                         instructionLocation: sidebar
                     }
 }
          sequence: {
              order: fixed
              components:  [
                  introduction
+                 consent
                  scatterplot2
 
              ]

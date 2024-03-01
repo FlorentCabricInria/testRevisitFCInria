@@ -30,10 +30,11 @@
         //.domain(d3.extent(genderData, d => d.salary)).nice()
         .domain([0, 4])
         .range([marginLeft, width - marginRight]);
-    var coefSize = 1.75;
+    var coefSize = 2.5;
     var perfVisual = "size"
     const dfPeople = [];
-    var  random = new Math.seedrandom("45457")
+    var seed="45457"
+    var  random = new Math.seedrandom(seed)
     const structForModel = []
    // if(nbElem=="30"){
  //   var data= structuredClone(data30)
@@ -41,11 +42,11 @@
 
         var storedData = structuredClone(data);
 
-        var random2 = new Math.seedrandom("45457")
-        var random3 = new Math.seedrandom("45457")
+        var random2 = new Math.seedrandom(seed)
+        var random3 = new Math.seedrandom(seed)
 
-        var random4 = new Math.seedrandom("45457")
-        var random5 = new Math.seedrandom("45457")
+        var random4 = new Math.seedrandom(seed)
+        var random5 = new Math.seedrandom(seed)
 
 
         var id = 0;
@@ -83,12 +84,29 @@
 
         svg.append("g")
             .attr("transform", `translate(0,${height - marginBottom})`)
-            .call(d3.axisBottom(x).tickArguments([5]));
+            .call(d3.axisBottom(x).tickArguments([5]).tickFormat(function(x) {
+                if (x==1 || x ==2 || x ==3)
+                return x
+            }));
+
+
+         //
+
         const color = d3.scaleOrdinal()
             .domain(["1", "2" ])
             .range([ "#266DF0FF", "#F040EFFF"]);
 
         const shape = d3.scaleOrdinal(data.map(d => d.species), d3.symbols.map(s => d3.symbol().type(s)()));
+        /**
+         *          #########################################################
+         *          ########### LEGEND
+         *          #########################################################
+         */
+        svg.append("circle").attr("cx",width-100).attr("cy",130).attr("r", 6).style("fill", "#266DF0FF")
+        svg.append("circle").attr("cx",width-100).attr("cy",160).attr("r", 6).style("fill", "#F040EFFF")
+        svg.append("text").attr("x", width-80).attr("y", 130).text("Men").style("font-size", "15px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", width-80).attr("y", 160).text("Women").style("font-size", "15px").attr("alignment-baseline","middle")
+
 
         /**
          #########################################################
@@ -109,7 +127,7 @@
                         } )
                         .attr("cy", d=> y(d.total_comp));
                 })
-            .attr("r", d => 3)
+            .attr("r", d => (parseInt(d.performance) + 1.75) * coefSize)
             .style("fill", "#AAAAAA88" )
 
         /**
@@ -168,7 +186,7 @@
                            /* if (radios == "size") {
                                 return (d.performance + 2) * coefSize;
                             } else {*/
-                                return 3;
+                                return (parseInt(d.performance) + 1.75) * coefSize;
                             //}
                         })
                         .attr("class", function (d) {
@@ -201,6 +219,9 @@
                 target.value = target.value - (sum - max);
                 // next line is just for demonstrational purposes
                 //document.getElementById('total').innerHTML = parseInt(PEslider.value) + parseInt(ALTslider.value);
+
+                document.getElementById("PEoutput").innerHTML = parseInt(PEslider.value)
+                document.getElementById("ALToutput").innerHTML = parseInt(ALTslider.value)
                 document.getElementById('textEquity').innerHTML = parseInt(PEslider.value)
                 PEslider.innerHTML = parseInt(PEslider.value)
                 ALTslider.innerHTML = parseInt(ALTslider)
@@ -224,6 +245,22 @@
             /*    document.getElementById('total').innerHTML = parseInt(document.getElementById("PayEquity").value) + parseInt(document.getElementById("NotEquity").value);*/
             return true;
         }
+
+        function changeSalary() {
+            var test =d3.selectAll("dot");
+            d3.selectAll(".dot")
+               // .data(data)
+                .attr("cy", function (d, i) {
+                    // console.log(equityslider)
+                    //  console.log(notequityslider)
+                    var valuePE = parseInt(d3.select("#PayEquity").node().value)
+                    var valueNE = parseInt(d3.select("#NotEquity ").node().value)
+                    var new_salary = (((valuePE / 60000) * d.sugg_raise_gender) + ((valueNE / 60000) * d.sugg_raise_perf) + parseFloat(d.total_comp))
+                    dfPeople[parseInt(d.key) - 1]['total_comp'] = new_salary
+                    //  totalGenderPayGap += (-1) * (parseFloat(d.raise_on_pay_gap_gender) * ((50000 - valuePE) / 50000))
+                    return y(new_salary);
+                })
+        }
         /*sliderEquity.oninput = function(e) {
             selectedValue = this.value
             changeSalary(selectedValue)
@@ -237,19 +274,6 @@
         };*/
 
     });
-    function changeSalary() {
-        d3.selectAll("circle")
-            .attr("cy", function (d, i) {
-                // console.log(equityslider)
-                //  console.log(notequityslider)
-                var valuePE = parseInt(d3.select("#PayEquity").node().value)
-                var valueNE = parseInt(d3.select("#NotEquity ").node().value)
-                var new_salary = (((valuePE / 60000) * d.sugg_raise_gender) + ((valueNE / 60000) * d.sugg_raise_perf) + parseFloat(d.total_comp))
-                dfPeople[parseInt(d.key) - 1]['total_comp'] = new_salary
-                //  totalGenderPayGap += (-1) * (parseFloat(d.raise_on_pay_gap_gender) * ((50000 - valuePE) / 50000))
-                return y(new_salary);
-            })
-    }
 function calculateNewPayGap(){
     var GPG = ((Math.exp(lm('log(total_comp) ~ gender_f1 + performance_f1 + performance_f2 + performance_f3 + grade_group_f4 + grade_group_f5',dfPeople).coefficients[1])-1)*100.0).toFixed(2)
     if(GPG >0){
