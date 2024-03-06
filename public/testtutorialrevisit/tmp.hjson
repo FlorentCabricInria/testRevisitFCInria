@@ -1,0 +1,309 @@
+ {
+     $schema: https://raw.githubusercontent.com/revisit-Studies/study/main/src/parser/StudyConfigSchema.json
+ studyMetadata: {
+        title:testtutorialrevisit
+        version: pilot
+        authors: [
+           Florent Cabric
+        ]
+        date: 2023-11-28
+        description: A test of the REVISIT Tutorial
+        organizations: [
+            Inria Saclay
+        ]
+    }
+uiConfig: {
+        contactEmail: florentcabric@inria.com
+        helpTextPath: testtutorialrevisit/help.md
+        logoPath: assets/revisitLogoSquare.svg
+        withProgressBar: true
+        autoDownloadStudy: false
+        sidebar: true
+    }
+       components: {
+             introduction: {
+                 type: markdown
+                 path: testtutorialrevisit/introduction.md
+                 response: []
+             }
+             scatterplot2: {
+                         type: website
+                         response: [
+                             {
+                                 id: scatterplot2
+                                 prompt: "Your selected answer:"
+                                 required: true
+                                 location: belowStimulus
+                                 type: iframe
+
+                             }
+                         ]
+                         path: testtutorialrevisit/test-decision-making-study.html {
+                         meta: {
+                             chart: bar
+                             AttrNo: 7
+                             misleading: false
+                         }
+                         description: A trial for the user to click the largest bar
+                         instruction: Click on the largest bar
+                         style: {
+                             height: 1800px
+                         }
+                         instructionLocation: aboveStimulus
+                    }
+
+             SD_SC1: {
+
+                 title:Test
+                 description: Change
+                 instruction: ""
+                 type: image
+                 path: testtutorialrevisit/SD_SC.svg
+                   style: {
+                                width: 800px
+                            }
+                 nextButtonLocation: belowStimulus
+                 response: [
+                     {
+                         id: SD_SC1
+                         prompt: "With which gender do you associate this color?"
+                         required: true
+                         location: belowStimulus
+                         type: numerical
+                         max: 3000,
+                         min: 0
+                     }
+                 ]
+             }
+              SD_UC1: {
+
+                  title:Test
+                  description: Change
+                  instruction: ""
+                  type: image
+                  path: testtutorialrevisit/SD_UC.svg
+                  style: {
+                  width: 800px
+                  }
+                  nextButtonLocation: belowStimulus
+                  response: [
+                      {
+                          id: SD_UC1
+                          prompt: "With which gender do you associate this color?"
+                          required: true
+                          location: belowStimulus
+                          type: numerical
+                          max: 3000,
+                          min: 0
+                      }
+                  ]
+              }
+
+              UD_SC1: {
+
+                      title:Test
+                      description: Change
+                      instruction: ""
+                      type: image
+                      path: testtutorialrevisit/UD_SC.svg
+                      style: {
+                      width: 800px
+                      }
+
+                      nextButtonLocation: belowStimulus
+                      response: [
+                          {
+                              id: UD_SC1
+                              prompt: "With which gender do you associate this color?"
+                              required: true
+                              location: belowStimulus
+                              type: numerical
+                              max: 3000,
+                              min: 0
+                          }
+                               ]
+                             }
+              UD_UC1: {
+
+                    title:Test
+                    description: Change
+                    instruction: ""
+                    type: image
+                    path: testtutorialrevisit/UD_UC.svg
+                    style: {
+                    width: 800px
+                    }
+                    nextButtonLocation: belowStimulus
+                    response: [
+                    {
+                            id: UD_UC1
+                             prompt: "With which gender do you associate this color?"
+                            required: true
+                            location: belowStimulus
+                            type: numerical
+                            max: 3000,
+                            min: 0
+                        }
+                    ]
+             }
+             pinkblock: {
+
+                                 title:Test
+                                 description: Change
+                                 instruction: ""
+                                 type: image
+                                 path: testtutorialrevisit/pink_block.svg
+                                 style: {
+                                 width: 400px
+                                 }
+                                 nextButtonLocation: belowStimulus
+                                 response: [
+                                 {
+                                         id: pinkColor1
+                                          prompt: "With which gender do you associate this color?"
+                                         required: true
+                                         location: belowStimulus
+                                         type: slider
+                                          options: [
+                                                                 {
+                                                                     label: Fully associated with men
+                                                                     value: 0
+                                                                 }
+                                                                 {
+                                                                     label: No greater association with men than with women
+                                                                     value: 50
+                                                                 }
+                                                                 {
+                                                                     label: Fully associated with women
+                                                                     value: 100
+                                                                 }
+                                                             ]
+
+                                     }
+                                 ]
+                          }
+             greenblock: {
+
+                                 title:Test
+                                 description: Change
+                                 instruction: ""
+                                 type: image
+                                 path: testtutorialrevisit/green_block.svg
+                                 style: {
+                                 width: 400px
+                                 }
+                                 nextButtonLocation: belowStimulus
+                                 response: [
+                                 {
+                                         id: greenColor1
+                                          prompt: "With which gender do you associate this color?"
+                                         required: true
+                                         location: belowStimulus
+                                         type: slider
+                                          options: [
+                                                                 {
+                                                                     label: Fully associated with men
+                                                                     value: 0
+                                                                 }
+                                                                 {
+                                                                     label: No greater association with men than with women
+                                                                     value: 50
+                                                                 }
+                                                                 {
+                                                                     label: Fully associated with women
+                                                                     value: 100
+                                                                 }
+                                                             ]
+
+                                     }
+                                 ]
+                          }
+             yellowblock: {
+
+                                              title:Test
+                                              description: Change
+                                              instruction: ""
+                                              type: image
+                                              path: testtutorialrevisit/yellow_block.svg
+                                              style: {
+                                              width: 400px
+                                              }
+                                              nextButtonLocation: belowStimulus
+                                              response: [
+                                              {
+                                                      id: yellowColor1
+                                                       prompt: "With which gender do you associate this color?"
+                                                      required: true
+                                                      location: belowStimulus
+                                                      type: slider
+                                                       options: [
+                                                                              {
+                                                                                  label: Fully associated with men
+                                                                                  value: 0
+                                                                              }
+                                                                              {
+                                                                                  label: No greater association with men than with women
+                                                                                  value: 50
+                                                                              }
+                                                                              {
+                                                                                  label: Fully associated with women
+                                                                                  value: 100
+                                                                              }
+                                                                          ]
+
+                                                  }
+                                              ]
+                                       }
+             redblock: {
+
+                                                           title:Test
+                                                           description: Change
+                                                           instruction: ""
+                                                           type: image
+                                                           path: testtutorialrevisit/red_block.svg
+                                                           style: {
+                                                           width: 400px
+                                                           }
+                                                           nextButtonLocation: belowStimulus
+                                                           response: [
+                                                           {
+                                                                   id: redColor1
+                                                                    prompt: "With which gender do you associate this color?"
+                                                                   required: true
+                                                                   location: belowStimulus
+                                                                   type: slider
+                                                                    options: [
+                                                                                           {
+                                                                                               label: Fully associated with men
+                                                                                               value: 0
+                                                                                           }
+                                                                                           {
+                                                                                               label: No greater association with men than with women
+                                                                                               value: 50
+                                                                                           }
+                                                                                           {
+                                                                                               label: Fully associated with women
+                                                                                               value: 100
+                                                                                           }
+                                                                                       ]
+
+                                                               }
+                                                           ]
+                                                    }
+         }
+         sequence: {
+             order: fixed
+             components:  [
+                 introduction
+                 scatterplot2
+                 SD_SC1
+                 SD_UC1
+                 UD_SC1
+                 UD_UC1
+                 pinkblock
+                 redblock
+                 yellowblock
+                 greenblock
+             ]
+         }
+     }
